@@ -1,0 +1,39 @@
+<header class="container-fluid p-0 sticky-top">
+  <nav
+    class="navbar navbar-expand-md navbar-dark bg-primary py-3"
+    style="padding: 0 5%"
+  >
+    <div class="container-fluid">
+      <a class="navbar-brand ml-5" href="/admin/index"
+        ><img
+          class="img-fluid px-3"
+          src="/images/icono2.png"
+          alt="Logo_blog_viajes"
+          title="Logo_blog_viajes"
+        />Blog Viajes</a
+      >
+
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="/admin/index">
+            <span class="bi bi-credit-card"></span> Admin
+          </a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav mr-5">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">
+            <span class="bi bi-person-square"></span>
+            <!-- Muestra el usuario guardado en la sesion -->
+            <%=usuario%></a>
+        </li>
+        <li class="nav-item">
+          <!-- Enlace a la ruta para cerrar cesion -->
+          <a class="nav-link" href="/admin/procesar_cerrar_sesion">
+            Cerrar Sesión</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

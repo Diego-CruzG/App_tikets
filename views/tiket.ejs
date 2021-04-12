@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link rel="stylesheet" href="/stylesheets/bootstrapModificado.css" />
+    <link rel="stylesheet" href="/bootstrap-icons/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="/stylesheets/estilos.css" />
+
+    <title>Detalles tiket</title>
+    <link rel="shortcut icon" href="/images/icono1.png" />
+</head>
+
+<body>
+    <%- include("./partials/encabezado_publico") %>
+
+        <div class="container">
+
+            <div class="row bg-white align-items-center no-gutters m-0 mt-2">
+                <div class="col-auto">
+                    <img src="/images/fondo.png" id="imgFondo" alt="img_fondo" />
+                </div>
+                <div class="col-auto">
+                    <div class="section py-1 text-center">
+                        <h1>Id_tiket</h1>
+                        <h3>
+                            <%=tikets.id%>
+                        </h3>
+                    </div>
+                </div>
+                <div class="col">
+                    <table class="table table-succes">
+                        <thead>
+                            <tr>
+                                <th scope="col">usuario</th>
+                                <th scope="col">fecha_creacion</th>
+                                <th scope="col">fecha_actualizacion</th>
+                                <th scope="col">estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <%=tikets.usuario%>
+                                </td>
+                                <td>
+                                    <%=tikets.fecha_creacion.getFullYear() %>/
+                                    <%=tikets.fecha_creacion.getMonth()+1 %>/
+                                    <%=tikets.fecha_creacion.getDate() %> -
+                                    <%=tikets.fecha_creacion.getHours() %>:
+                                    <%=tikets.fecha_creacion.getMinutes() %>:
+                                    <%=tikets.fecha_creacion.getSeconds() %>
+                                </td>
+                                <td>
+                                    <%=tikets.fecha_actualizacion.getFullYear() %>/
+                                    <%=tikets.fecha_actualizacion.getMonth()+1 %>/
+                                    <%=tikets.fecha_actualizacion.getDate() %> -
+                                    <%=tikets.fecha_actualizacion.getHours() %>:
+                                    <%=tikets.fecha_actualizacion.getMinutes() %>:
+                                    <%=tikets.fecha_actualizacion.getSeconds() %>
+                                </td>
+                                <% if (tikets.estado == "abierto") { %>
+                                    <td style="color:  #0d6efd;">
+                                        <%=tikets.estado%>
+                                    </td>
+                                <% } else { %>
+                                    <td style="color:  #20c997;">
+                                        <%=tikets.estado%>
+                                    </td>
+                                <% } %>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col">
+
+                    <!-- campo que muestra los detalles de la publicacion -->
+                    <div class="card mb-3">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Detalle:</h5>
+                            <div class="row align-items-center">
+
+                                <div class="col-12">
+                                    <p class="card-text">
+                                        <%-tikets.asunto%>
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 text-center mt-1">
+                    <p>
+                        <a class="btn btn-primary" href="/">
+                            << Regresar</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    <%- include ("./partials/pie") %>
+    <script src="/javascripts/jquery-3.5.1.min.js"></script>
+    <script src="/javascripts/popper.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/script.js"></script>
+</body>
+
+</html>

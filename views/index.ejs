@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link rel="stylesheet" href="/stylesheets/bootstrapModificado.css" />
+    <link rel="stylesheet" href="/bootstrap-icons/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="/stylesheets/estilos.css" />
+
+    <title>Tikets</title>
+    <link rel="shortcut icon" href="/images/icono1.png" />
+</head>
+
+<body>
+    <!-- Encabezado Partials -->
+    <%- include("./partials/encabezado_publico") %>
+
+        <div class="container">
+
+            <div class="row bg-white align-items-center no-gutters m-0 mt-2">
+                <div class="col-auto">
+                    <img src="/images/fondo.png" id="imgFondo" alt="img_fondo" />
+                </div>
+                <div class="col">
+                    <div class="section py-1">
+                        <h1>Inicio</h1>
+                        <h3>Busca tu tiket aqui:</h3>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- El formulario busqueda envia esta en un query -->
+            <form action="/">
+                <div class="form-group row px-3 mt-2">
+
+                    <label for="busqueda" class="col-auto col-form-label" style="font-size: 1.3em">
+                            Realiza tu busqueda por:</label>
+                    <!-- El atributo value contiene la variable busqueda que evita que se borre esta
+                            cuando se refresca la pagina -->
+                    <div class="col-sm-2">
+                        <select class="form-select mb-3" id="seleccion" name="seleccion">
+                            <% if ( seleccion == "tikets.id") { %>
+                                <option value="Seleccione">Seleccione</option>
+                                <option selected value="tikets.id">id_tiket</option>
+                                <option value="usuario">Usuario</option>
+                                <option value="estado">Estado</option>
+                            <% } else if ( seleccion == "usuario"){ %>
+                                <option value="Seleccione">Seleccione</option>
+                                <option value="tikets.id">id_tiket</option>
+                                <option selected value="usuario">Usuario</option>
+                                <option value="estado">Estado</option> 
+                            <% } else if ( seleccion == "estado"){ %>
+                                <option value="Seleccione">Seleccione</option>
+                                <option value="tikets.id">id_tiket</option>
+                                <option value="usuario">Usuario</option>
+                                <option selected value="estado">Estado</option> 
+                            <% } else { %>
+                                <option selected value="Seleccione">Seleccione</option>
+                                <option value="tikets.id">id_tiket</option>
+                                <option value="usuario">Usuario</option>
+                                <option value="estado">Estado</option>
+                            <% } %>                  
+                        </select>
+                    </div>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="busqueda" name="busqueda" value="<%=busqueda%>" placeholder="Buscar..." />
+                    </div>
+                    <div class="col-sm-2">
+                        <button type="submit" class="btn btn-primary mb-2">
+                        <i class="bi bi-search"></i> Buscar
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- 5 primeras publicaciones de la BD-->
+            <table class="table table-succes table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">id_tiket</th>
+                        <th scope="col">usuario</th>
+                        <th scope="col">fecha_creacion</th>
+                        <th scope="col">fecha_actualizacion</th>
+                        <th scope="col">estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% tikets.forEach( (tiket) => { %>
+                        <tr>
+                            <td>
+                                <a href="/tikets/<%=tiket.id%>">
+                                    <%=tiket.id%>
+                                </a>
+                            </td>
+                            <td>
+                                <%=tiket.usuario%>
+                            </td>
+                            <td>
+                                <%= tiket.fecha_creacion.getFullYear() %>/
+                                <%= tiket.fecha_creacion.getMonth()+1 %>/
+                                <%= tiket.fecha_creacion.getDate() %> -
+                                <%= tiket.fecha_creacion.getHours() %>:
+                                <%= tiket.fecha_creacion.getMinutes() %>:
+                                <%= tiket.fecha_creacion.getSeconds() %>
+                            </td>
+                            <td>
+                                <%= tiket.fecha_actualizacion.getFullYear() %>/
+                                <%= tiket.fecha_actualizacion.getMonth()+1 %>/
+                                <%= tiket.fecha_actualizacion.getDate() %> -
+                                <%= tiket.fecha_actualizacion.getHours() %>:
+                                <%= tiket.fecha_actualizacion.getMinutes() %>:
+                                <%= tiket.fecha_actualizacion.getSeconds() %>
+                            </td>
+                            <td>
+                                <%=tiket.estado%>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+
+            <!-- ENLACES PARA EL PAGINADO -->
+            <div class="row">
+                <div class="col-sm-12 text-center mt-3">
+                    <p>
+                        <!-- los enlaces van a la pagina principal pero pasan la variable pagina
+                                en forma de query como parametro en el html -->
+                        <a class="btn btn-primary" href="/?pagina=<%=pagina-1%>">
+                            << Anterior</a> |
+                        <a class="btn btn-primary" href="/?pagina=<%=pagina+1%>">Siguiente >> </a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    <%- include ("./partials/pie") %>
+    <script src="/javascripts/jquery-3.5.1.min.js"></script>
+    <script src="/javascripts/popper.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/script.js"></script>
+</body>
+
+</html>
