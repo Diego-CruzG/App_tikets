@@ -1,10 +1,9 @@
 # Prueba Hirings Double V Partners 
 
-_Desarrollo de una app que permita crear, editar, y recuperar un tiket de una base de datos._
-_segun los requisitos esta app debe desarrollarse en Netcore o Golang, aunque no domino estos lenguajes, esta app esta_
-_desarrollada en **Node.js**, con una interfaz trabajada en **Bootstrap** modificado en sass y usando **Mysql** como_
-_base de datos. Aunque no cumpla los requisitos de lenguaje solicitados, aun asi me gustaria que vieran la app ya que mi_ 
-_interes es dar a conocer mi trabajo por si en un futuro llegan a necesitar un candidato que maneje estos lenguajes 😊_
+_Desarrollo de una app que permite crear, editar, y recuperar un tiket de una base de datos._
+_esta app esta desarrollada en **Node.js**, con una interfaz trabajada en **Bootstrap** modificado en sass y usando **Mysql** como_
+_base de datos._ 
+_Mi interes es dar a conocer mi trabajo esperando que sea de interes para ustedes y el perfil que puedan solicitar 😊_
 
 
 ### Pre-requisitos 📋
