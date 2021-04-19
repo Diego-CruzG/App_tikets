@@ -1,4 +1,4 @@
-# Prueba Hirings Double V Partners 
+# PORTAFOLIO DIEGO CRUZ
 
 _Desarrollo de una app que permite crear, editar, y recuperar un tiket de una base de datos._
 _esta app esta desarrollada en **Node.js**, con una interfaz trabajada en **Bootstrap** modificado en sass y usando **Mysql** como_
